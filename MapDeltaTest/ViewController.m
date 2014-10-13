@@ -8,12 +8,27 @@
 
 #import "ViewController.h"
 
+@interface ViewController () <MKMapViewDelegate>
+
+@end
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _worldMapView.mapType = MKMapTypeHybrid;
+    _worldMapView.rotateEnabled = NO;
+    
+    _worldMapView.delegate = self;
+    
+    [self p_showRegionCoord2DAndDeltasInLabels];
+}
+
+#pragma mark - MKMapViewDelegateMethods
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
     [self p_showRegionCoord2DAndDeltasInLabels];
 }
 
@@ -32,12 +47,17 @@
 
 - (IBAction)teleportButtonTapped
 {
-    CLLocationCoordinate2D center = _worldMapView.region.center;
-    MKCoordinateSpan span = _worldMapView.region.span;
+    CLLocationDegrees newLatitude = _worldMapView.region.center.latitude + _worldMapView.region.span.latitudeDelta / 2;
+    if (newLatitude > 90) {
+        newLatitude = 90;
+    }
     
-    _worldMapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(center.latitude + span.latitudeDelta / 2, center.longitude + span.longitudeDelta /2), span);
-
-    [self p_showRegionCoord2DAndDeltasInLabels];
+    CLLocationDegrees newLongitude = _worldMapView.region.center.longitude + _worldMapView.region.span.longitudeDelta / 2;
+    if (newLongitude > 180) {
+        newLongitude = 180;
+    }
+    
+    _worldMapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(newLatitude, newLongitude), _worldMapView.region.span);
 }
 
 @end
