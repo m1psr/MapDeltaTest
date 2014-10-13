@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,80 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Cc-PO-pyj">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WrD-dx-yOq"/>
+                                    <constraint firstAttribute="height" constant="300" id="gwu-Lq-g7T"/>
+                                </constraints>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="c8G-cW-NB2" userLabel="circle Top Right">
+                                <rect key="frame" x="424" y="127" width="50" height="50"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="STA-7O-TUS" userLabel="circle Center">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Коодинаты центра" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InD-qJ-BWE" userLabel="Label Center">
+                                <rect key="frame" x="16" y="92" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дельты" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nK-eL-GzA" userLabel="Label Deltas">
+                                <rect key="frame" x="16" y="121" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djX-aE-qQO">
+                                <rect key="frame" x="154" y="458" width="293" height="30"/>
+                                <state key="normal" title="Поместить правый верхний угол в центр">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teleportButtonTapped" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PqN-wJ-BeV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="center.latitude + span.latitudeDelta / 2, center.longitude + span.longitudeDelta /2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTO-tG-6t9">
+                                <rect key="frame" x="16" y="496" width="568" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1nK-eL-GzA" secondAttribute="trailing" constant="16" id="1cq-kN-0x8"/>
+                            <constraint firstItem="1nK-eL-GzA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="3PB-zz-ItK"/>
+                            <constraint firstItem="5Cc-PO-pyj" firstAttribute="top" secondItem="1nK-eL-GzA" secondAttribute="bottom" constant="8" id="7OE-JZ-ecx"/>
+                            <constraint firstItem="InD-qJ-BWE" firstAttribute="leading" secondItem="1nK-eL-GzA" secondAttribute="leading" id="882-XN-oHg"/>
+                            <constraint firstItem="5Cc-PO-pyj" firstAttribute="centerX" secondItem="STA-7O-TUS" secondAttribute="centerX" id="DFx-za-OvN"/>
+                            <constraint firstAttribute="centerY" secondItem="5Cc-PO-pyj" secondAttribute="centerY" id="IkO-qE-pAW"/>
+                            <constraint firstAttribute="trailing" secondItem="pTO-tG-6t9" secondAttribute="trailing" constant="16" id="OhK-JU-Q57"/>
+                            <constraint firstItem="5Cc-PO-pyj" firstAttribute="top" secondItem="c8G-cW-NB2" secondAttribute="top" constant="23" id="PxU-rx-bNO"/>
+                            <constraint firstItem="InD-qJ-BWE" firstAttribute="trailing" secondItem="1nK-eL-GzA" secondAttribute="trailing" id="RiU-LJ-yTb"/>
+                            <constraint firstItem="pTO-tG-6t9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="SbO-O8-Vw5"/>
+                            <constraint firstItem="pTO-tG-6t9" firstAttribute="top" secondItem="djX-aE-qQO" secondAttribute="bottom" constant="8" id="TnE-TH-244"/>
+                            <constraint firstItem="5Cc-PO-pyj" firstAttribute="centerY" secondItem="STA-7O-TUS" secondAttribute="centerY" id="X7L-Gf-hlI"/>
+                            <constraint firstItem="1nK-eL-GzA" firstAttribute="top" secondItem="InD-qJ-BWE" secondAttribute="bottom" constant="8" id="ZMQ-sf-2K2"/>
+                            <constraint firstAttribute="centerX" secondItem="5Cc-PO-pyj" secondAttribute="centerX" id="afH-qN-kTK"/>
+                            <constraint firstAttribute="centerX" secondItem="djX-aE-qQO" secondAttribute="centerX" constant="-0.5" id="qJP-IR-EZh"/>
+                            <constraint firstItem="djX-aE-qQO" firstAttribute="top" secondItem="5Cc-PO-pyj" secondAttribute="bottom" constant="8" id="t3y-QH-FzI"/>
+                            <constraint firstItem="5Cc-PO-pyj" firstAttribute="trailing" secondItem="c8G-cW-NB2" secondAttribute="trailing" constant="-24" id="wgH-3t-vTR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="centerLabel" destination="InD-qJ-BWE" id="lnC-QG-bFg"/>
+                        <outlet property="deltasLabel" destination="1nK-eL-GzA" id="BjA-jv-1jE"/>
+                        <outlet property="worldMapView" destination="5Cc-PO-pyj" id="lcx-i9-DOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle" width="50" height="50"/>
+    </resources>
 </document>

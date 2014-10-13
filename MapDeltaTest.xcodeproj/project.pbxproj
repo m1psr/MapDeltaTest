@@ -14,6 +14,7 @@
 		0C1F788919EBB632001D72ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1F788819EBB632001D72ED /* Images.xcassets */; };
 		0C1F788C19EBB632001D72ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1F788A19EBB632001D72ED /* LaunchScreen.xib */; };
 		0C1F789819EBB632001D72ED /* MapDeltaTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F789719EBB632001D72ED /* MapDeltaTestTests.m */; };
+		0C1F78A219EBB6B3001D72ED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1F78A119EBB6B3001D72ED /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		0C1F789119EBB632001D72ED /* MapDeltaTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapDeltaTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1F789619EBB632001D72ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C1F789719EBB632001D72ED /* MapDeltaTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDeltaTestTests.m; sourceTree = "<group>"; };
+		0C1F78A119EBB6B3001D72ED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1F78A219EBB6B3001D72ED /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +99,7 @@
 		0C1F787B19EBB632001D72ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0C1F78A119EBB6B3001D72ED /* MapKit.framework */,
 				0C1F787C19EBB632001D72ED /* Info.plist */,
 				0C1F787D19EBB632001D72ED /* main.m */,
 			);
@@ -344,6 +348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MapDeltaTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MapDeltaTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
